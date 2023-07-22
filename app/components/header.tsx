@@ -13,7 +13,7 @@ const Header = () => {
         </Box>
 
         <Box display='flex' alignItems='center' ml='auto'>    
-          <Text fontWeight='bold' color='#e32929' cursor='pointer'>Pizza Analyzer</Text>
+          <Text fontWeight='bold' color='brandRed.500' cursor='pointer' transition='transition 0.3s ease' _hover={{transform: 'scale(1.08)'}}>Pizza Analyzer</Text>
           <Text ml={6} cursor='pointer' _hover={{textDecoration: 'underline'}}>About</Text>
           <Text ml={6} cursor='pointer' _hover={{textDecoration: 'underline'}}>Twitter</Text>
           <Text fontSize='xs' ml={1}>(Customer Support)</Text>
