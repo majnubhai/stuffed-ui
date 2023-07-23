@@ -1,5 +1,5 @@
 import { Box, Image, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useTab } from "@chakra-ui/react"
-import InventoryCard, { CardTypes } from "./inventoryCard"
+import InventoryCard, { CardTypeMetadata, CardTypes } from "./inventoryCard"
 import { ForwardedRef, forwardRef } from "react"
 import truncateEthAddress from "truncate-eth-address"
 
@@ -38,7 +38,10 @@ const EquipmentCard = ({ title, imgUrl, heldBy }: { title: string, imgUrl: strin
         <Box mt={2} mb='auto' flex={1}  display='flex' flexDir='column'>
           <Text fontSize='xs'>Current Status: </Text>
           {heldBy ? (
-            <Text fontSize='xs' fontWeight='semibold' m='auto'>{truncateEthAddress(heldBy)}</Text>
+            <>
+              <Text fontSize='lg' fontWeight='bold' mx='auto' mt='auto' color={CardTypeMetadata[CardTypes.equipment].color}>IN USE</Text>
+              <Text fontSize='xs' fontWeight='semibold' mx='auto' mb='auto'>{truncateEthAddress(heldBy)}</Text>
+            </>
           ) : (
             <Box bg='white' p={2} borderRadius='full' cursor='pointer' w='40px' boxShadow='base' m='auto'>
               <Image src='/icons/qrcode.png' alt='copy' h={6} w={6} />

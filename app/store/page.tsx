@@ -3,7 +3,7 @@
 import { Box, Button, Flex, Grid, GridItem, Text } from "@chakra-ui/react"
 import ChefCard from "../components/chefCard"
 import { useState } from "react"
-import IngredientCard from "../components/ingredientCard"
+import RawIngredientCard from "../components/rawIngredientCard"
 import EquipmentCard from "../components/equipmentCard"
 
 const Store = () => {
@@ -18,17 +18,11 @@ const Store = () => {
 
   const [ingredients, setIngredients] = useState([{
     id: 'ing0',
-  }, {
-    id: 'ing1'
-  }, {
-    id: 'ing2'
-  }, {
-    id: 'ing3'
-  }, {
-    id: 'ing4'
-  }, {
-    id: 'ing5'
-  }])
+    title: 'Mozzarella Cheese',
+    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR52_CylhbkD_leWPjSG4ESW8OGDk0x5i4VtA&usqp=CAU',
+    quantity: 6000,
+    units: 'grams'
+  },])
 
   const [equipment, setEquipment] = useState([{
     id: 'eqp-0',
@@ -57,16 +51,16 @@ const Store = () => {
         </Flex>
       </Box>
 
-      {/* <Box mt={12} px={12}>
+      <Box mt={12} px={12}>
         <Text fontSize='2xl' fontWeight='bold' mb={2}>Inventory</Text>
         <Flex gap={6} flexWrap='wrap'>
           {ingredients.map((ing) => (
-            <Box flex={1} maxW='280px' key={ing.id} display='flex' justifyContent='center'>
-              <IngredientCard />
+            <Box flex={1} key={ing.id} display='flex' justifyContent='center'>
+              <RawIngredientCard {...ing} />
             </Box>
           ))}
         </Flex>
-      </Box> */}
+      </Box>
 
       <Box mt={12} px={12}>
         <Text fontSize='2xl' fontWeight='bold' mb={2}>Inventory</Text>
