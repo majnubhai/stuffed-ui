@@ -10,7 +10,7 @@ const ChefCard = ({
   const config = genConfig(address)
   const toast = useToast()
   return (
-    <Card minW='420px' flex={1} h='160px' boxShadow='md' display='flex' alignItems='stretch' flexDir='row' px={6} bg='#f8f9fa'>
+    <Card maxW='420px' flex={1} h='160px' boxShadow='md' display='flex' alignItems='stretch' flexDir='row' px={6} bg='#f8f9fa'>
       <Box display='flex' flexDir='column' justifyContent='center' pos='relative'>
         <Avatar style={{ width: '6rem', height: '6rem' }} {...config} />
         <Box pos='absolute' bg='white' p={2} borderRadius='full' cursor='pointer' right={0} top='75px' boxShadow='base'>

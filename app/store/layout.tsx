@@ -1,6 +1,6 @@
 'use client'
 
-import NavLayout from "../components/navlayout"
+import NavLayout from "../components/layout/navLayout"
 
 const StoreLayout = ({children}: {children: React.ReactNode}) => {
   return (

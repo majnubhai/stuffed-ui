@@ -1,19 +1,18 @@
 'use client'
 
-import { Box, Button, Flex, Grid, GridItem, Text } from "@chakra-ui/react"
-import ChefCard from "../components/chefCard"
-import { useState } from "react"
-import RawIngredientCard from "../components/rawIngredientCard"
-import EquipmentCard from "../components/equipmentCard"
+import { Box, Button, Flex, Grid, GridItem, Text, useDisclosure } from "@chakra-ui/react"
+import ChefCard from "../components/cards/chefCard"
+import { useRef, useState } from "react"
+import RawIngredientCard from "../components/cards/rawIngredientCard"
+import EquipmentCard from "../components/cards/equipmentCard"
+import CreateOrder from "../components/dialogs/createOrder"
 
 const Store = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const cancelRef = useRef()
+
   const [chefs, setChefs] = useState([
     { id: 0, address: '0x43Cb32825f0A1CBaC2fd6B11a18f46aa81D142f4' },
-    { id: 1, address: '0x43Cb32825f0A1CBaC2fd6B11a18f46aa81D142f4' },
-    { id: 2, address: '0x43Cb32825f0A1CBaC2fd6B11a18f46aa81D142f4' },
-    { id: 3, address: '0x43Cb32825f0A1CBaC2fd6B11a18f46aa81D142f4' },
-    { id: 4, address: '0x43Cb32825f0A1CBaC2fd6B11a18f46aa81D142f4' },
-    { id: 5, address: '0x43Cb32825f0A1CBaC2fd6B11a18f46aa81D142f4' },
   ])
 
   const [ingredients, setIngredients] = useState([{
@@ -34,7 +33,7 @@ const Store = () => {
   return (
     <>
       <Box mt={6} display='flex' justifyContent='center'>
-        <Button colorScheme='brandRed'>Place New Order</Button>
+        <Button colorScheme='brandRed' onClick={() => onOpen()}>Place New Order</Button>
         <Button ml={3}>Your Orders</Button>
       </Box>
 
@@ -72,6 +71,8 @@ const Store = () => {
           ))}
         </Flex>
       </Box>
+
+      <CreateOrder isOpen={isOpen} onClose={onClose} cancelRef={cancelRef} />
     </>
   )
 }
