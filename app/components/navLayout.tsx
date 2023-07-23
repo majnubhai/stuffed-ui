@@ -8,6 +8,7 @@ const NavLayout = ({children}: PropsWithChildren) => {
       display='flex'
       flexDir='column'
       alignItems='stretch'
+      pb={12}
     >
       <Header />
       {children}

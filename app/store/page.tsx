@@ -31,7 +31,10 @@ const Store = () => {
   }])
 
   const [equipment, setEquipment] = useState([{
-    id: 'eqp-0'
+    id: 'eqp-0',
+    title: 'Oven',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Double_oven.jpg/170px-Double_oven.jpg',
+    heldBy: '0x43Cb32825f0A1CBaC2fd6B11a18f46aa81D142f4'
   }])
 
   return (
@@ -54,7 +57,7 @@ const Store = () => {
         </Flex>
       </Box>
 
-      <Box mt={12} px={12}>
+      {/* <Box mt={12} px={12}>
         <Text fontSize='2xl' fontWeight='bold' mb={2}>Inventory</Text>
         <Flex gap={6} flexWrap='wrap'>
           {ingredients.map((ing) => (
@@ -63,14 +66,14 @@ const Store = () => {
             </Box>
           ))}
         </Flex>
-      </Box>
+      </Box> */}
 
       <Box mt={12} px={12}>
         <Text fontSize='2xl' fontWeight='bold' mb={2}>Inventory</Text>
         <Flex gap={6} flexWrap='wrap'>
           {equipment.map((eqp) => (
-            <Box key={eqp.id} display='flex' justifyContent='center'>
-              <EquipmentCard />
+            <Box key={eqp.id} display='flex' flex={1} justifyContent='center'>
+              <EquipmentCard {...eqp} />
             </Box>
           ))}
         </Flex>
